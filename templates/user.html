@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Hello {{username}}!
+{% endblock %}
+
+{% block body %}
+    <h2>Your password is {{password}}</h2>
+    <form class="form-inline my-2 my-lg-0" action="{{url_for('search', search_type= 'isbn')}}" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Type an ISBN" aria-label="Search" name="isbn">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for ISBN!</button>
+    </form>
+    <form class="form-inline my-2 my-lg-0" action="{{url_for('search', search_type= 'author')}}" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Type the name of an author" aria-label="author" name="author">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for Author!</button>
+    </form>
+    <form class="form-inline my-2 my-lg-0" action="{{url_for('search', search_type= 'title')}}" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Type a title" aria-label="Search" name="title">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for title!</button>
+    </form>
+    <form class="form-inline my-2 my-lg-0" action="{{url_for('search', search_type= 'year')}}" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Type a year" aria-label="Search" name="year">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for a year!</button>
+    </form>
+
+
+
+
+{% endblock %}
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>My website!</title>
+    </head>
+    <body>
+        <h1> Hello {{username}}!</h1>
+        <h2>Your password is {{password}}</h2>
+        <form action="{{url_for('index')}}">
+            <button>Log out</button>
+        </form>
+    </body>
+</html> -->

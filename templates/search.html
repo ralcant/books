@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %} Search! {% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="../css/style.css"/>
+{% endblock %}
+{% block body %}
+    <h2>This is your search history:</h2>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th scope="col">You searched for...</th>
+                    <th scope="col">You searched for the type of...</th>
+                    <th scope="col">Date of search</th>
+                    <th scope="col">Go to result of search</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for search in searchs %}
+                <!-- <a>Yay</a> -->
+                <tr>
+                    <th scope="row">{{loop.index}}</td>
+                    <td>{{search[0]}}</td>
+                    <td>{{search[1]}}</td>
+                    <td>{{search[2]}}</td>
+                    
+                    <td><a href="{{url_for('general_search', text= search[0], search_type= search[1])}}">Go to search</a></td>
+                </tr>
+                {% else %}
+                <h1>You haven't made any search now. Press "Home" to go to your search engine. :)</h1>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
